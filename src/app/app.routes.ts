@@ -22,5 +22,5 @@ export const routes: Routes = [
     { path: 'recipe-manager-page', component: RecipeManagerPage},
     { path: 'subscribe', component: SubscribePage },
     { path: 'users-manager', component: UsersManagerPage },
-    { path: '**', redirectTo: 'simulation' },
+    { path: '**', redirectTo: 'home' },
     ];

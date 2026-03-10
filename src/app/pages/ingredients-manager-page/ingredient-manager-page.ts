@@ -2,8 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Ingredient } from '../../models/ingredient.model';
 import { IngredientService } from '../../services/ingredient.service';
+
 @Component({
   selector: 'app-ingredient-manager-page',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './ingredient-manager-page.html',
   styleUrls: ['./ingredient-manager-page.css'],

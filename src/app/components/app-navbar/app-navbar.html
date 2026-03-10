@@ -12,12 +12,14 @@
             <!-- Cale la navbar sur la droite -->
             <!-- <div class="me-auto"></div> -->
             <ul class="navbar-nav nav-underline">
+
                 <!-- Accès à la page home -->
                 <li class="nav-item border-0">
                     <a class="nav-link" routerLink="home" routerLinkActive="active" title="Retour à la page d'accueil">
                         <i class="bi bi-house-fill"></i>
                     </a>
                 </li>
+
                 <!-- Accès à la page de calcul d'une recette SaF -->
                 <li class="nav-item">
                     <a class="nav-link" routerLink="recipe-calculator" routerLinkActive="active"
@@ -26,13 +28,14 @@
                         Calculateur
                     </a>
                 </li>
+
                 <!-- Accès aux recettes de l'utilisateur -->
-                <li class="nav-item"><a class="nav-link" routerLink="recipe-manager" routerLinkActive="active" title="Gérer mes recettes (retrouver ,modifier,
-supprimer...)">
+                <li class="nav-item"><a class="nav-link" routerLink="recipe-manager" routerLinkActive="active" title="Gérer mes recettes (retrouver ,modifier, supprimer...)">
                         <i class="bi bi-journal-text"> </i>
                         Mes recettes
                     </a>
                 </li>
+
                 <!-- Accès gestion des utilisateurs pour l'administrateur -->
                 <li class="nav-item admin-only">
                     <a class="nav-link" routerLink="users-manager" routerLinkActive="active"
@@ -41,10 +44,10 @@ supprimer...)">
                         Utilisateurs
                     </a>
                 </li>
+
                 <!-- Accès gestion des ingrédients pour l'administrateur -->
                 <li class="nav-item admin-only">
-                    <a class="nav-link" routerLink="ingredients-manager" routerLinkActive="active" title="Gérer les ingrédients (corps gras et agents
-alcalins)">
+                    <a class="nav-link" routerLink="ingredient-manager" routerLinkActive="active" title="Gérer les ingrédients (corps gras et agents alcalins)">
                         <i class="bi bi-collection-fill"> </i>
                         Ingrédients
                     </a>

@@ -1,8 +1,7 @@
 footer {
-    background: var(--dark-charter);
-    color: white;
+    background: #1f3d2b; /* vert forêt */
+    color: #eaf7ea;
 
-    /* padding: 20px 10px; */
     .footer-row {
         min-height: 100px;
     }
@@ -12,52 +11,56 @@ footer {
     }
 
     .footer-icon {
-        color: var(--green-charter);
+        color: #6fbf73; /* vert feuille */
     }
 
-    /* .footer-col1 {
- width: 200px;
- } */
     .footer-col2 {
-        border-left: solid 3px silver;
+        border-left: solid 2px rgba(255,255,255,0.15);
     }
 
     .footer-col3 {
-        border-left: solid 3px silver;
+        border-left: solid 2px rgba(255,255,255,0.15);
 
         .adresse-postale {
             font-size: 0.8em;
+            color: #cce3cc;
         }
 
         .footer-icon {
             font-size: 3em;
+            color: #95d5b2; /* vert sauge */
         }
     }
 
     .footer-col4 {
-        border-left: solid 3px silver;
+        border-left: solid 2px rgba(255,255,255,0.15);
     }
 
     .footer-link {
         font-size: 0.9em;
-        color: white;
+        color: #eaf7ea;
         text-decoration: none;
         font-weight: normal;
+        transition: color 0.2s ease;
 
         &:hover {
             text-decoration: underline;
+            color: #95d5b2; /* vert sauge */
         }
     }
 
     .footer-icon {
-        color: var(--purple-charter);
+        color: #6fbf73;
         font-size: 20px;
     }
 
     .footer-bottom {
         height: 25px;
-        background: var(--green-charter);
+        background: #2f5d3f; /* vert mousse */
         font-size: 0.8em;
-        color: white;
+        color: #eaf7ea;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }

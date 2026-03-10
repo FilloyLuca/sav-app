@@ -1,18 +1,17 @@
 .app-header {
+
     .top-bar-fluid {
         height: var(--top-bar-height);
-        background: var(--dark-side-charter);
+        background: #1f3d2b; /* vert forêt */
     }
 
     .top-bar-content {
         height: var(--top-bar-height);
-        background: var(--brown-charter);
-        border-left: solid 1px var(--green-charter);
-        border-right: solid 1px var(--green-charter);
+        background: #2f5d3f; /* vert mousse */
+        border-left: solid 1px #4a7c59;
+        border-right: solid 1px #4a7c59;
         display: flex;
-        /* Ajout pour aligner les éléments */
         align-items: center;
-        /* Centre verticalement les éléments */
     }
 
     .logo {
@@ -23,45 +22,48 @@
         display: flex;
         height: 30px;
         border-radius: 15px;
-        /* align-items: center; */
-        background: var(--green-charter);
+        background: #6fbf73; /* vert feuille */
         padding: 0px;
+        align-items: center;
 
         .user-name {
             min-width: 120px;
-            color: white;
+            color: #f1fff3; /* vert très clair */
             margin-left: 10px;
             margin-right: 0px;
             padding-right: 0px;
             transform: translateX(8px);
+            font-weight: 500;
         }
 
         .dropdown-btn {
             width: 30px;
             height: 30px;
-            background: var(--purple-charter);
+            background: #4a7c59; /* vert olive */
             border: none;
             margin-right: 0px;
             color: white;
             font-size: 20px;
+            border-radius: 50%;
             z-index: 2;
         }
 
-        /* Style du menu dropdown */
+        /* Menu dropdown */
         .dropdown-menu {
             z-index: 1021;
             min-width: 150px;
-            box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
+            background: #f4f9f4; /* fond clair naturel */
+            border: 1px solid #cce3cc;
+            box-shadow: 0 8px 8px rgba(0, 0, 0, 0.25);
         }
 
-        /* Espacement des éléments */
         .dropdown-item {
             padding: 5px 10px;
+            color: #2f5d3f;
         }
 
-        /* Style au survol */
         .dropdown-item:hover {
-            background: var(--green-charter);
+            background: #6fbf73;
             color: white;
         }
     }

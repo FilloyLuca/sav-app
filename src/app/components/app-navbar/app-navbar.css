@@ -1,43 +1,49 @@
 .nav-bar-fluid {
-    background: var(--dark-side-charter);
-    box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.2);
+    background: #1f3d2b; /* vert forêt */
+    box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.25);
 
     .nav-bar-content {
-        background: var(--dark-charter);
-        border-top: 4px solid var(--green-charter);
-        border-left: solid 1px var(--green-charter);
-        border-right: solid 1px var(--green-charter);
+        background: #2f5d3f; /* vert mousse */
+        border-top: 4px solid #6fbf73; /* vert feuille */
+        border-left: solid 1px #4a7c59;
+        border-right: solid 1px #4a7c59;
 
         .nav-link {
-            color: white;
+            color: #d8f3dc; /* vert très clair */
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: #95d5b2; /* vert sauge */
         }
 
         .active {
-            color: var(--green-charter);
+            color: #6fbf73; /* vert feuille */
+            font-weight: 600;
         }
 
         .admin-only {
-            background: var(--purple-charter);
+            background: #4a7c59; /* vert olive */
+            border-radius: 4px;
         }
     }
 }
 
 .navbar-nav {
     gap: 0px;
-    /* Supprime l'espace entre les éléments */
     margin: 2px;
 }
 
 .navbar-toggler {
     width: 55px;
-    background-color: var(--purple-charter);
-    color: white;
+    background-color: #6fbf73; /* vert feuille */
+    color: #1f3d2b;
+    border: none;
 }
 
 .nav-item {
     margin: 0px;
-    /* Contrôle l'espace entre chaque élément */
-    padding: 0px 5px 0px 5px;
-    border-left: 1px solid;
-    border-color: rgb(110, 110, 110);
+    padding: 0px 8px;
+    border-left: 1px solid rgba(255,255,255,0.1);
 }

@@ -1,28 +1,63 @@
-/*
--------------------------------------
-Définition des constantes de styles :
--------------------------------------
-*/
-:root {
- /* Hauteur de la top barre :*/
- --top-bar-height: 70px;
- /* Définition des couleurs de la charte graphique : */
- --green-charter: rgb(138, 160, 23);
- --brown-charter: rgb(74, 64, 56);
- --dark-charter: rgb(46, 46, 46);
- --purple-charter: rgb(126, 31, 162);
- --dark-side-charter: rgb(35, 35, 35);
- }
-/*
---------------------
-Définition du fond :
---------------------
-*/
-body {
- background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255,
-255, 255, 0.9)), url('/backgrounds/fond.jpg');
- background-position: center;
- background-repeat: no-repeat;
- background-size: cover; /*contain*/
- background-attachment: fixed;
- }
+footer {
+    background: var(--dark-charter);
+    color: white;
+
+    /* padding: 20px 10px; */
+    .footer-row {
+        min-height: 100px;
+    }
+
+    .footer-logo {
+        height: 30px;
+    }
+
+    .footer-icon {
+        color: var(--green-charter);
+    }
+
+    /* .footer-col1 {
+ width: 200px;
+ } */
+    .footer-col2 {
+        border-left: solid 3px silver;
+    }
+
+    .footer-col3 {
+        border-left: solid 3px silver;
+
+        .adresse-postale {
+            font-size: 0.8em;
+        }
+
+        .footer-icon {
+            font-size: 3em;
+        }
+    }
+
+    .footer-col4 {
+        border-left: solid 3px silver;
+    }
+
+    .footer-link {
+        font-size: 0.9em;
+        color: white;
+        text-decoration: none;
+        font-weight: normal;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .footer-icon {
+        color: var(--purple-charter);
+        font-size: 20px;
+    }
+
+    .footer-bottom {
+        height: 25px;
+        background: var(--green-charter);
+        font-size: 0.8em;
+        color: white;
+    }
+}

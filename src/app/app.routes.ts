@@ -8,6 +8,7 @@ import { RecipeCalculatorPage } from './pages/recipe-calculator-page/recipe-calc
 import { RecipeManagerPage } from './pages/recipe-manager-page/recipe-manager-page';
 import { SubscribePage } from './pages/subscribe-page/subscribe-page';
 import { UsersManagerPage } from './pages/users-manager-page/users-manager-page';
+import { LegalNoticePage } from './pages/legal-notice-page/legal-notice-page';
 
 
 
@@ -22,5 +23,6 @@ export const routes: Routes = [
     { path: 'recipe-manager-page', component: RecipeManagerPage},
     { path: 'subscribe', component: SubscribePage },
     { path: 'users-manager', component: UsersManagerPage },
+    { path: "legal-notice", component: LegalNoticePage },
     { path: '**', redirectTo: 'home' },
     ];

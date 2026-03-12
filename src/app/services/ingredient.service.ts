@@ -8,7 +8,7 @@ import { Ingredient } from '../models/ingredient.model';
 })
 
 export class IngredientService {
-  
+
   // URL de base de notre API :
   private readonly API_URL_INGREDIENT = 'http://localhost:8080/api-savon/v1/ingredient';
   constructor(private http: HttpClient) { }
@@ -29,9 +29,28 @@ export class IngredientService {
     return this.http.get<Ingredient>(`${this.API_URL_INGREDIENT}/${id}`);
   }
 
-  // TODO : Créer plus tard les méthodes manquantes :
-  // - deleteIngredients(id: number)
-  // - deleteAllIngredients()
-  // - addIngredient(ingredient: Ingredient)
-  // - updateIngredient(id: number, ingredient: Ingredient)
+  /** * Ajoute un nouvel ingrédient.
+ */
+  addIngredient(ingredient: Ingredient): Observable<Ingredient> {
+    return this.http.post<Ingredient>(this.API_URL_INGREDIENT, ingredient);
+  }
+  
+  /** * Met à jour un ingrédient existant.
+  */
+  updateIngredient(ingredient: Ingredient): Observable<Ingredient> {
+    return this.http.put<Ingredient>
+      (`${this.API_URL_INGREDIENT}/${ingredient.id}`, ingredient);
+  }
+
+  /** * Supprime un ingrédient par son ID.
+  */
+  deleteIngredient(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.API_URL_INGREDIENT}/${id}`);
+  }
+
+  /** * Supprime tous les ingrédients de la base.
+  */
+  deleteAllIngredients(): Observable<void> {
+    return this.http.delete<void>(`${this.API_URL_INGREDIENT}/all`);
+  }
 }

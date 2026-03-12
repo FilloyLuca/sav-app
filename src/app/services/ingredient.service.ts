@@ -10,7 +10,7 @@ import { Ingredient } from '../models/ingredient.model';
 export class IngredientService {
   
   // URL de base de notre API :
-  private readonly API_URL_INGREDIENT = 'http://localhost:8080/apisavon/v1/ingredient';
+  private readonly API_URL_INGREDIENT = 'http://localhost:8080/api-savon/v1/ingredient';
   constructor(private http: HttpClient) { }
 
   /**

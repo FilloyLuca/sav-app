@@ -2,11 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Recette } from '../../models/recette.model';
 import { RecetteService } from '../../services/recette.service';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-manager-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,FormsModule,RouterModule],
   templateUrl: './recipe-manager-page.html',
   styleUrl: './recipe-manager-page.css'
 })

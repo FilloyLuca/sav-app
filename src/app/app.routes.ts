@@ -18,7 +18,7 @@ export const routes: Routes = [
   { path: 'ingredient-manager', component: IngredientsManagerPage },
   { path: 'login', component: LoginPage },
   { path: 'recipe-calculator', component: RecipeCalculatorPage },
-  { path: 'recipe-manager-page', component: RecipeManagerPage },
+  { path: 'recipe-manager', component: RecipeManagerPage },
   { path: 'subscribe', component: SubscribePage },
   { path: 'users-manager', component: UsersManagerPage },
   { path: 'legal-notice', component: LegalNoticePage },

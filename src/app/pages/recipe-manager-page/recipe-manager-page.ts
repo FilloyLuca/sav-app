@@ -4,6 +4,10 @@ import { Recette } from '../../models/recette.model';
 import { RecetteService } from '../../services/recette.service';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+//TODO 1: Ajouter les 2 imports : Char + registerables
+import { Chart, registerables } from 'chart.js/auto'
+
+Chart.register(...registerables); // A placer juste après les imports !
 
 @Component({
   selector: 'app-recipe-manager-page',
@@ -17,16 +21,33 @@ export class RecipeManagerPage implements OnInit {
 
   public recettes: Recette[] = [];
 
+  // Propriété pour stocker la recette à afficher dans la modale
+  public recetteSelectionnee: Recette | null = null;
+
   constructor(private recetteService: RecetteService) { }
 
   ngOnInit(): void {
     this.chargerRecettes();
   }
-  
+
+  // chargerRecettes(): void {
+  //   this.recetteService.getRecettes().subscribe({
+  //     next: (data) => this.recettes = data,
+  //     error: (err) => console.error("Erreur API", err)
+  //   });
+  // }
+
+  // TODO 2: Remplacer la méthode chargerRecettes() par cette version :
+  /**
+   * Charge les recettes et initialise les graphiques
+   */
   chargerRecettes(): void {
-    this.recetteService.getRecettes().subscribe({
-      next: (data) => this.recettes = data,
-      error: (err) => console.error("Erreur API", err)
+    this.recetteService.getRecettes().subscribe(data => {
+      this.recettes = data;
+      // On attend un court instant que le DOM se mette à jour avec le @for
+      setTimeout(() => {
+        this.recettes.forEach(r => this.initChart(r));
+      }, 100);
     });
   }
 
@@ -35,5 +56,56 @@ export class RecipeManagerPage implements OnInit {
       this.recetteService.deleteRecette(id).subscribe(() =>
         this.chargerRecettes());
     }
+  }
+
+  // TODO3 : Ajouter la méthode :
+  /**
+  * Crée le graphique Radar pour une recette spécifique
+  */
+  initChart(recette: Recette): void {
+    const ctx = document.getElementById(`chart-${recette.id}`) as
+      HTMLCanvasElement;
+    if (!ctx) return;
+
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: recette.resultats.map(res => res.caracteristique.nom),
+        datasets: [{
+          label: 'Scores',
+          data: recette.resultats.map(res => res.score),
+          fill: true,
+          backgroundColor: 'rgba(210, 0, 255, 0.2)',
+          borderColor: 'rgb(210, 0, 255)',
+          pointBackgroundColor: 'rgb(0, 180, 0)',
+          pointBorderColor: 'rgb(0, 180, 0)',
+          pointHoverBackgroundColor: 'rgb(255, 255, 255)',
+          pointHoverBorderColor: 'rgb(0, 180, 0)'
+        }]
+      },
+      options: {
+        elements: { line: { borderWidth: 2 } },
+        scales: {
+          r: {
+            suggestedMin: 0, suggestedMax: 10, ticks: { stepSize: 1 }
+          }
+        },
+        plugins: { legend: { display: false } }
+      }
+    });
+  }
+
+  /**
+ * Définit la recette sélectionnée pour l'affichage des détails
+ */
+  ouvrirModale(recette: Recette): void {
+    this.recetteSelectionnee = recette;
+  }
+
+  /**
+   * Réinitialise la sélection à la fermeture
+   */
+  fermerModale(): void {
+    this.recetteSelectionnee = null;
   }
 }

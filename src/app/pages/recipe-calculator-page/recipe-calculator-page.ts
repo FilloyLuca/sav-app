@@ -24,6 +24,9 @@ export class RecipeCalculatorPage implements OnInit {
   public selectionIngredients: LigneIngredient[] = [];
   public masseTotale = 0;
 
+  // Affichage de la recette après son calcul :
+  public recetteAffichee: Recette | null = null;
+
   // Nouvelle recette :
   public nouvelleRecetteDTO: RecetteFormDTO = {
     id: null,
@@ -106,13 +109,23 @@ export class RecipeCalculatorPage implements OnInit {
     };
     console.log('Objet RecetteDTO prêt à envoyer :', recetteEnvoyee);
 
+    // // 3. Envoi de la recette à l'API via le service recette :
+    // this.recetteService.createRecette(recetteEnvoyee).subscribe({
+    //   next: (recette: Recette) => {
+    //     console.log('Recette reçue du backend :', recette);
+    //   },
+    //   error: (err) => {
+    //     console.error('Erreur lors de la création de la recette :', err);
+    //   }
+    // });
     // 3. Envoi de la recette à l'API via le service recette :
     this.recetteService.createRecette(recetteEnvoyee).subscribe({
       next: (recette: Recette) => {
-        console.log('Recette reçue du backend :', recette);
+        this.recetteAffichee = recette; // On récupère la recette avec les scores
+        alert("Recette calculée et enregistrée avec succès !");
       },
       error: (err) => {
-        console.error('Erreur lors de la création de la recette :', err);
+        alert("Erreur lors du calcul. Vérifier vos données.");
       }
     });
   }

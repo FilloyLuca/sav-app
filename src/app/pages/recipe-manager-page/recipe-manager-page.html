@@ -1,40 +1,4 @@
 <div class="container mt-4">
-    <div class="row">
-        @for (recette of recettes; track recette.id) {
-        <div class="col-md-4 mb-4">
-
-            <div class="card shadow-sm h-100 border-success-subtle">
-                <div class="card-header bg-success text-white">
-                    <h5 class="card-title mb-0">{{ recette.titre }}</h5>
-                </div>
-
-                <div class="card-body">
-                    <!-- <p class="text-muted small">Créée le : {{ recette.dateCreation | date:'dd/MM/yyyy' }}</p> -->
-                    <ul class="list-group list-group-flush mb-3">
-                        <li class="list-group-item d-flex justify-contentbetween">{{
-                            recette.resultats[0].caracteristique.nom }}
-                            <strong>{{ recette.resultats[0].score.toFixed(1) }}
-                            </strong>
-                        </li>
-                        <li class="list-group-item d-flex justify-contentbetween">{{
-                            recette.resultats[1].caracteristique.nom}}
-                            <strong>{{ recette.resultats[1].score.toFixed(1) }}
-                            </strong>
-                        </li>
-                    </ul>
-                    <div class="d-flex justify-content-between">
-                        <button class="btn btn-outline-primary btnsm">Détails</button>
-                        <button (click)="supprimerRecette(recette.id)" class="btn btn-outline-danger btn-sm">
-                            <i class="bi bi-trash"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        } @empty {
-        <div class="alert alert-info">Aucune recette trouvée.</div>
-        }
-    </div>
 
     <div class="container">
         <div class="row">
@@ -52,12 +16,14 @@
                                     {{ recette.surgraissage }}%
                                 </span>
                             </li>
+
                             <li class="list-group-item d-flex justify-content-between">
                                 <span>Alcalin :</span>
                                 <span>
                                     {{ recette.avecSoude ? 'Soude (NaOH)' : 'Potasse (KOH)' }}
                                 </span>
                             </li>
+
                             <li class="list-group-item d-flex justify-content-between">
                                 <span>Eau :</span>
                                 <span class="fw-bold">{{ recette.apportEnEau }} g</span>
@@ -82,17 +48,6 @@
                             </div>
                         </div>
 
-                        <div class="d-flex justify-content-between mt-auto">
-
-                            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#modalDetails" (click)="ouvrirModale(recette)">
-                                Détails
-                            </button>
-                            <button class="btn btn-outline-danger btn-sm" (click)="supprimerRecette(recette.id)">
-                                Supprimer
-                            </button>
-
-                        </div>
                     </div>
                 </div>
             </div> }
@@ -113,6 +68,7 @@
                     <div class="modal-body">
                         <h6>Composition de la recette</h6>
                         <table class="table table-sm mb-4">
+
                             <thead class="table-light">
                                 <tr>
                                     <th>Ingrédient</th>
@@ -156,7 +112,7 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bsdismiss="modal">Fermer</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
                     </div>
                     }
 

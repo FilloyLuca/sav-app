@@ -62,12 +62,53 @@ export class RecipeManagerPage implements OnInit {
   /**
   * Crée le graphique Radar pour une recette spécifique
   */
+  // initChart(recette: Recette): void {
+  //   const ctx = document.getElementById(`chart-${recette.id}`) as
+  //     HTMLCanvasElement;
+  //   if (!ctx) return;
+
+  //   new Chart(ctx, {
+  //     type: 'radar',
+  //     data: {
+  //       labels: recette.resultats.map(res => res.caracteristique.nom),
+  //       datasets: [{
+  //         label: 'Scores',
+  //         data: recette.resultats.map(res => res.score),
+  //         fill: true,
+  //         backgroundColor: 'rgba(210, 0, 255, 0.2)',
+  //         borderColor: 'rgb(210, 0, 255)',
+  //         pointBackgroundColor: 'rgb(0, 180, 0)',
+  //         pointBorderColor: 'rgb(0, 180, 0)',
+  //         pointHoverBackgroundColor: 'rgb(255, 255, 255)',
+  //         pointHoverBorderColor: 'rgb(0, 180, 0)'
+  //       }]
+  //     },
+  //     options: {
+  //       elements: { line: { borderWidth: 2 } },
+  //       scales: {
+  //         r: {
+  //           suggestedMin: 0, suggestedMax: 10, ticks: { stepSize: 1 }
+  //         }
+  //       },
+  //       plugins: { legend: { display: false } }
+  //     }
+  //   });
+  // }
+
+  private charts: Chart[] = [];
+
   initChart(recette: Recette): void {
-    const ctx = document.getElementById(`chart-${recette.id}`) as
-      HTMLCanvasElement;
+    const ctx = document.getElementById(`chart-${recette.id}`) as HTMLCanvasElement;
     if (!ctx) return;
 
-    new Chart(ctx, {
+    // Si un chart existe déjà sur ce canvas, on le détruit
+    const existingChart = this.charts.find(c => c.canvas.id === ctx.id);
+    if (existingChart) {
+      existingChart.destroy();
+      this.charts = this.charts.filter(c => c !== existingChart);
+    }
+
+    const chart = new Chart(ctx, {
       type: 'radar',
       data: {
         labels: recette.resultats.map(res => res.caracteristique.nom),
@@ -93,6 +134,8 @@ export class RecipeManagerPage implements OnInit {
         plugins: { legend: { display: false } }
       }
     });
+
+    this.charts.push(chart);
   }
 
   /**

@@ -1,0 +1,38 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Ombre douce sous le savon -->
+  <ellipse cx="256" cy="400" rx="150" ry="22" fill="#66BB6A" opacity="0.2"/>
+
+  <!-- Corps du savon -->
+  <rect x="56" y="140" width="400" height="250" rx="50" fill="#81C784" stroke="#2E7D32" stroke-width="4"/>
+
+  <!-- Face supérieure (relief) -->
+  <rect x="80" y="162" width="352" height="206" rx="34" fill="#C8E6C9"/>
+
+  <!-- Gravure centrale -->
+  <text x="256" y="282" font-family="sans-serif" font-size="58" font-weight="500" text-anchor="middle" fill="#1B5E20">Sav-App</text>
+
+  <!-- Bulles de mousse -->
+  <circle cx="128" cy="100" r="38" fill="#E8F5E9" stroke="#81C784" stroke-width="2.5"/>
+  <circle cx="114" cy="86" r="10" fill="white" opacity="0.6"/>
+
+  <circle cx="240" cy="72" r="26" fill="#E8F5E9" stroke="#81C784" stroke-width="2.5"/>
+  <circle cx="230" cy="62" r="7" fill="white" opacity="0.6"/>
+
+  <circle cx="340" cy="82" r="34" fill="#E8F5E9" stroke="#81C784" stroke-width="2.5"/>
+  <circle cx="328" cy="70" r="9" fill="white" opacity="0.6"/>
+
+  <circle cx="430" cy="112" r="22" fill="#E8F5E9" stroke="#81C784" stroke-width="2.5"/>
+  <circle cx="421" cy="103" r="6" fill="white" opacity="0.6"/>
+
+  <circle cx="76" cy="200" r="20" fill="#E8F5E9" stroke="#81C784" stroke-width="2.5"/>
+  <circle cx="68" cy="192" r="5" fill="white" opacity="0.6"/>
+
+  <circle cx="446" cy="300" r="24" fill="#E8F5E9" stroke="#81C784" stroke-width="2.5"/>
+  <circle cx="437" cy="291" r="6" fill="white" opacity="0.6"/>
+
+  <circle cx="82" cy="340" r="16" fill="#E8F5E9" stroke="#81C784" stroke-width="2.5"/>
+  <circle cx="75" cy="333" r="4" fill="white" opacity="0.5"/>
+
+  <circle cx="430" cy="150" r="14" fill="#E8F5E9" stroke="#81C784" stroke-width="2"/>
+  <circle cx="423" cy="144" r="4" fill="white" opacity="0.5"/>
+</svg>

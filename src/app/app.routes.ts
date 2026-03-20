@@ -9,6 +9,7 @@ import { RecipeManagerPage } from './pages/recipe-manager-page/recipe-manager-pa
 import { SubscribePage } from './pages/subscribe-page/subscribe-page';
 import { UsersManagerPage } from './pages/users-manager-page/users-manager-page';
 import { LegalNoticePage } from './pages/legal-notice-page/legal-notice-page';
+import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -22,5 +23,6 @@ export const routes: Routes = [
   { path: 'subscribe', component: SubscribePage },
   { path: 'users-manager', component: UsersManagerPage },
   { path: 'legal-notice', component: LegalNoticePage },
-  { path: '**', redirectTo: 'home' },
+  // Redirection par défaut vers home (en cas d'url invalide) :
+  { path: '**', redirectTo: 'home' },  // Toujours mis en dernier !
 ];

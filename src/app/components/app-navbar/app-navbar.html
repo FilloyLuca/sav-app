@@ -29,25 +29,35 @@
                     </a>
                 </li>
 
-                <!-- Accès aux recettes de l'utilisateur -->
-                <li class="nav-item"><a class="nav-link" routerLink="recipe-manager" routerLinkActive="active" title="Gérer mes recettes (retrouver ,modifier, supprimer...)">
-                        <i class="bi bi-journal-text"> </i>
-                        Mes recettes
+                <!-- Mes Recettes (connecté : UTILISATEUR ou ADMIN) -->
+                @if (authService.isAuthenticated()) {
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="recipe-manager" routerLinkActive="active">
+                        <i class="bi bi-journal-text"></i> Mes recettes
                     </a>
                 </li>
+                }
 
-                <!-- Accès gestion des utilisateurs pour l'administrateur -->
+                <!-- Utilisateurs & Ingrédients (ADMIN uniquement) -->
+                @if (authService.isAuthenticated()) {
+                @if (authService.hasRole('ROLE_ADMIN')) {
                 <li class="nav-item admin-only">
-                    <a class="nav-link" routerLink="users-manager" routerLinkActive="active"
-                        title="Gérer les utilisateurs">
-                        <i class="bi bi-people-fill"> </i>
-                        Utilisateurs
+                    <a class="nav-link" routerLink="users-manager" routerLinkActive="active">
+                        <i class="bi bi-people-fill"></i> Utilisateurs
                     </a>
                 </li>
+                <li class="nav-item admin-only">
+                    <a class="nav-link" routerLink="ingredients-manager" routerLinkActive="active">
+                        <i class="bi bi-collection-fill"></i> Ingrédients
+                    </a>
+                </li>
+                }
+                }
 
                 <!-- Accès gestion des ingrédients pour l'administrateur -->
                 <li class="nav-item admin-only">
-                    <a class="nav-link" routerLink="ingredient-manager" routerLinkActive="active" title="Gérer les ingrédients (corps gras et agents alcalins)">
+                    <a class="nav-link" routerLink="ingredient-manager" routerLinkActive="active"
+                        title="Gérer les ingrédients (corps gras et agents alcalins)">
                         <i class="bi bi-collection-fill"> </i>
                         Ingrédients
                     </a>
